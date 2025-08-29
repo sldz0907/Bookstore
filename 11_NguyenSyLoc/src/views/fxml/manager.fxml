@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="main_form" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin_controller">
+   <top>
+      <Pane prefHeight="35.0" prefWidth="1100.0" style="-fx-background-color: #a60d1a;" styleClass="nav-form2" stylesheets="@../css/statics_design.css" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="51.0" layoutY="5.0" text="Library Management | Admin" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="56.0" fitWidth="24.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/hust_logo2.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="exitBtn" layoutX="1059.0" layoutY="5.0" mnemonicParsing="false" onAction="#close" styleClass="exit-button" stylesheets="@../css/statics_design.css">
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/x.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="minimizeBtn" layoutX="1025.0" layoutY="5.0" mnemonicParsing="false" onAction="#minimize" styleClass="exit-button" stylesheets="@../css/statics_design.css">
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/minimize.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+   </top>
+   <left>
+      <Pane prefHeight="565.0" prefWidth="220.0" style="-fx-background-color: #a60d1a;" styleClass="nav-form2" stylesheets="@../css/statics_design.css" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="72.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/admin.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="27.0" layoutY="117.0" text="Welcome, Manager" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="manageBooksBtn" layoutX="10.0" layoutY="171.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="45.0" prefWidth="200.0" styleClass="nav-button" stylesheets="@../css/statics_design.css" text="Manage Books">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/book.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="recordsBtn" layoutX="10.0" layoutY="237.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="45.0" prefWidth="200.0" styleClass="nav-button" stylesheets="@../css/statics_design.css" text="Orders">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/reading.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="membersBtn" layoutX="9.0" layoutY="303.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="45.0" prefWidth="200.0" styleClass="nav-button" stylesheets="@../css/statics_design.css" text="Members">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/member.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="staticsBtn" layoutX="9.0" layoutY="364.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="45.0" prefWidth="200.0" styleClass="nav-button" stylesheets="@../css/statics_design.css" text="Statistics">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/statistics.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="signOutBtn" layoutX="38.0" layoutY="511.0" mnemonicParsing="false" onAction="#signout" styleClass="exit-button" stylesheets="@../css/statics_design.css" text="Sign out" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/log_out.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane fx:id="staticsForm" layoutX="168.0" layoutY="133.0" prefHeight="564.8" prefWidth="880.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="156.0" prefWidth="852.0" stylesheets="@../css/statics_design.css">
+                     <styleClass>
+                        <String fx:value="white-bg" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                     <children>
+                        <AnchorPane layoutX="14.0" layoutY="15.0" prefHeight="126.0" prefWidth="230.0" styleClass="nav-form" stylesheets="@../css/statics_design.css">
+                           <children>
+                              <ImageView fitHeight="70.0" fitWidth="67.0" layoutX="7.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/book2.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="st_availableBooks" alignment="CENTER_RIGHT" layoutX="64.0" layoutY="14.0" prefHeight="27.0" prefWidth="151.0" text="0" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" layoutX="65.0" layoutY="84.0" prefHeight="27.0" prefWidth="106.0" text="Available Books" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="311.0" layoutY="15.0" prefHeight="126.0" prefWidth="230.0" styleClass="nav-form" stylesheets="@../css/statics_design.css">
+                           <children>
+                              <Label alignment="CENTER" layoutX="62.0" layoutY="84.0" prefHeight="27.0" prefWidth="106.0" text="Total Incomes" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="51.0" fitWidth="85.0" layoutX="7.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/money.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="st_totalIncomes" alignment="CENTER_RIGHT" layoutX="64.0" layoutY="14.0" prefHeight="27.0" prefWidth="151.0" text="\$0.0" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="608.0" layoutY="15.0" prefHeight="126.0" prefWidth="230.0" styleClass="nav-form" stylesheets="@../css/statics_design.css">
+                           <children>
+                              <ImageView fitHeight="72.0" fitWidth="75.0" layoutX="8.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/member2.png" />
+                                 </image>
+                              </ImageView>
+                              <Label alignment="CENTER" layoutX="55.0" layoutY="84.0" prefHeight="27.0" prefWidth="120.0" text="Total Members" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="st_totalMembers" alignment="CENTER_RIGHT" layoutX="64.0" layoutY="14.0" prefHeight="27.0" prefWidth="151.0" text="0" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="14.0" layoutY="195.0" prefHeight="352.0" prefWidth="852.0" stylesheets="@../css/statics_design.css">
+                     <styleClass>
+                        <String fx:value="white-bg" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                     <children>
+                        <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="324.0" prefWidth="482.0" stylesheets="@../css/statics_design.css">
+                           <styleClass>
+                              <String fx:value="white-bg" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                           <children>
+                              <BarChart fx:id="st_incomeChart" layoutX="25.0" layoutY="12.0" prefHeight="300.0" prefWidth="431.0" title="Income Data Chart">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </BarChart>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="516.0" layoutY="14.0" prefHeight="324.0" prefWidth="322.0" stylesheets="@../css/statics_design.css">
+                           <styleClass>
+                              <String fx:value="white-bg" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                           <children>
+                              <BarChart fx:id="st_rankBarChart" layoutX="-1.0" layoutY="8.0" prefHeight="302.0" prefWidth="324.0" title="Member Rank">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </BarChart>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="manageBooksForm" layoutX="267.0" layoutY="112.0" prefHeight="564.8" prefWidth="880.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane layoutX="14.0" layoutY="233.0" prefHeight="311.0" prefWidth="854.0" stylesheets="@../css/statics_design.css">
+                     <styleClass>
+                        <String fx:value="white-bg" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                     <children>
+                        <TableView fx:id="mb_tableView" layoutX="14.0" layoutY="58.0" prefHeight="239.0" prefWidth="825.0" stylesheets="@../css/statics_design.css">
+                          <columns>
+                            <TableColumn fx:id="mb_col_bookID" prefWidth="86.80001831054688" text="Book ID" />
+                            <TableColumn fx:id="mb_col_title" prefWidth="277.6000061035156" text="Title" />
+                              <TableColumn fx:id="mb_col_author" prefWidth="152.79998779296875" text="Author" />
+                              <TableColumn fx:id="mb_col_genre" prefWidth="107.5999755859375" text="Genre" />
+                              <TableColumn fx:id="mb_col_quantity" prefWidth="92.0" text="Quantity" />
+                              <TableColumn fx:id="mb_col_price" prefWidth="106.79986572265625" text="Price" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="mb_search" layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="262.0" promptText="Search title" styleClass="search" stylesheets="@../css/statics_design.css" />
+                        <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="20.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/search.png" />
+                           </image>
+                        </ImageView>
+                        <ComboBox fx:id="mb_genreFilter" layoutX="304.0" layoutY="17.0" prefHeight="26.0" prefWidth="116.0" promptText="Genre" styleClass="textfield" stylesheets="@../css/statics_design.css" />
+                        <Button fx:id="mb_resetBtn" layoutX="747.0" layoutY="14.0" mnemonicParsing="false" onAction="#mb_resetFilter" prefHeight="30.0" prefWidth="81.0" styleClass="uicd-button" stylesheets="@../css/statics_design.css" text="Reset" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="854.0" stylesheets="@../css/statics_design.css">
+                     <styleClass>
+                        <String fx:value="white-bg" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                     <children>
+                        <Label layoutX="46.0" layoutY="26.0" text="Book ID:">
+                           <font>
+                              <Font name="Tahoma" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="mb_bookID" layoutX="121.0" layoutY="22.0" prefHeight="25.0" prefWidth="98.0" styleClass="textfield" stylesheets="@../css/statics_design.css" />
+                        <Label layoutX="50.0" layoutY="64.0" text="Title:">
+                           <font>
+                              <Font name="Tahoma" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="mb_title" layoutX="121.0" layoutY="64.0" styleClass="textfield" stylesheets="@../css/statics_design.css" />
+                        <Label layoutX="50.0" layoutY="109.0" text="Author:">
+                           <font>
+                              <Font name="Tahoma" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="mb_author" layoutX="121.0" layoutY="109.0" styleClass="textfield" stylesheets="@../css/statics_design.css" />
+                        <Label layoutX="315.0" layoutY="26.0" text="Quantity:">
+                           <font>
+                              <Font name="Tahoma" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="mb_quantity" layoutX="390.0" layoutY="22.0" styleClass="textfield" stylesheets="@../css/statics_design.css" />
+                        <Label layoutX="50.0" layoutY="156.0" text="Genre:">
+                           <font>
+                              <Font name="Tahoma" size="14.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="mb_genre" layoutX="120.0" layoutY="152.0" prefHeight="25.0" prefWidth="150.0" promptText="Choose..." styleClass="textfield" stylesheets="@../css/statics_design.css" />
+                        <Label layoutX="315.0" layoutY="68.0" text="Price:">
+                           <font>
+                              <Font name="Tahoma" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="mb_price" layoutX="390.0" layoutY="64.0" promptText="\$0.0" styleClass="textfield" stylesheets="@../css/statics_design.css" />
+                        <Button fx:id="mb_updateBtn" layoutX="723.0" layoutY="30.0" mnemonicParsing="false" onAction="#mb_updateBook" prefHeight="36.0" prefWidth="98.0" styleClass="uicd-button" stylesheets="@../css/statics_design.css" text="Update" />
+                        <Button fx:id="mb_insertBtn" layoutX="593.0" layoutY="26.0" mnemonicParsing="false" onAction="#mb_insertBook" prefHeight="36.0" prefWidth="98.0" styleClass="uicd-button" stylesheets="@../css/statics_design.css" text="Insert" />
+                        <Button fx:id="mb_clearBtn" layoutX="593.0" layoutY="101.0" mnemonicParsing="false" onAction="#mb_handleClearBtn" prefHeight="36.0" prefWidth="98.0" styleClass="uicd-button" stylesheets="@../css/statics_design.css" text="Clear" />
+                        <Button fx:id="mb_deleteBtn" layoutX="723.0" layoutY="101.0" mnemonicParsing="false" onAction="#mb_deleteBook" prefHeight="36.0" prefWidth="98.0" styleClass="uicd-button" stylesheets="@../css/statics_design.css" text="Delete" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="membersForm" layoutX="10.0" layoutY="10.0" prefHeight="564.8" prefWidth="880.0" visible="false">
+               <children>
+                  <AnchorPane layoutX="12.0" layoutY="16.0" prefHeight="534.0" prefWidth="854.0" stylesheets="@../css/statics_design.css">
+                     <styleClass>
+                        <String fx:value="white-bg" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                     <children>
+                        <TableView fx:id="mem_tableView" layoutX="14.0" layoutY="58.0" prefHeight="239.0" prefWidth="825.0" stylesheets="@../css/statics_design.css">
+                           <columns>
+                              <TableColumn fx:id="mem_col_ID" prefWidth="71.20001602172852" text="ID" />
+                              <TableColumn fx:id="mem_col_fullName" prefWidth="183.1999969482422" text="Full Name" />
+                              <TableColumn fx:id="mem_col_email" prefWidth="148.40005493164062" text="Email" />
+                              <TableColumn fx:id="mem_col_phone" prefWidth="119.5999755859375" text="Phone" />
+                              <TableColumn fx:id="mem_col_address" prefWidth="112.79998779296875" text="Address" />
+                              <TableColumn fx:id="mem_col_rank" minWidth="4.0" prefWidth="98.79998779296875" text="Rank" />
+                              <TableColumn fx:id="mem_col_totalSpending" prefWidth="120.0" text="Total Spending" />
+                              <TableColumn fx:id="mem_col_status" prefWidth="84.0001220703125" text="Status" />
+                           </columns>
+                        </TableView>
+                        <TextField fx:id="mem_search" layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="262.0" promptText="Search" styleClass="search" stylesheets="@../css/statics_design.css" />
+                        <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="20.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/search.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="33.0" layoutY="335.0" text="ID: ">
+                           <font>
+                              <Font name="Tahoma" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="mem_id" layoutX="117.0" layoutY="331.0" prefHeight="25.0" prefWidth="98.0" styleClass="textfield" stylesheets="@../css/statics_design.css" />
+                        <Label layoutX="34.0" layoutY="382.0" text="Full Name:">
+                           <font>
+                              <Font name="Tahoma" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="mem_fullName" layoutX="117.0" layoutY="380.0" styleClass="textfield" stylesheets="@../css/statics_design.css" />
+                        <Label layoutX="34.0" layoutY="434.0" text="Email:">
+                           <font>
+                              <Font name="Tahoma" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="mem_email" layoutX="119.0" layoutY="433.0" styleClass="textfield" stylesheets="@../css/statics_design.css" />
+                        <Label layoutX="33.0" layoutY="486.0" text="Phone:">
+                           <font>
+                              <Font name="Tahoma" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="mem_phone" layoutX="119.0" layoutY="482.0" styleClass="textfield" stylesheets="@../css/statics_design.css" />
+                        <Label layoutX="299.0" layoutY="375.0" text="Address:">
+                           <font>
+                              <Font name="Tahoma" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="310.0" layoutY="429.0" text="Rank:">
+                           <font>
+                              <Font name="Tahoma" size="14.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="mem_updateBtn" layoutX="715.0" layoutY="375.0" mnemonicParsing="false" onAction="#mb_updateMember" prefHeight="36.0" prefWidth="98.0" styleClass="uicd-button" stylesheets="@../css/statics_design.css" text="Update" />
+                        <Button fx:id="mem_registerBtn" layoutX="595.0" layoutY="375.0" mnemonicParsing="false" onAction="#mb_insertMember" prefHeight="36.0" prefWidth="98.0" styleClass="uicd-button" stylesheets="@../css/statics_design.css" text="Register" />
+                        <Button fx:id="mem_clearBtn" layoutX="595.0" layoutY="428.0" mnemonicParsing="false" onAction="#mem_clearMemberFields" prefHeight="36.0" prefWidth="98.0" styleClass="uicd-button" stylesheets="@../css/statics_design.css" text="Clear" />
+                        <Button fx:id="mem_deleteBtn" layoutX="715.0" layoutY="428.0" mnemonicParsing="false" onAction="#mem_deleteMember" prefHeight="36.0" prefWidth="98.0" styleClass="uicd-button" stylesheets="@../css/statics_design.css" text="Delete" />
+                        <ComboBox fx:id="mem_rank" layoutX="385.0" layoutY="425.0" prefHeight="25.0" prefWidth="150.0" promptText="Choose..." styleClass="textfield" stylesheets="@../css/statics_design.css" />
+                        <TextField fx:id="mem_address" layoutX="385.0" layoutY="371.0" styleClass="textfield" stylesheets="@../css/statics_design.css" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="ordersForm" layoutX="135.0" layoutY="111.0" prefHeight="574.8" prefWidth="890.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <TableView fx:id="od_tableView" layoutX="16.0" layoutY="57.0" prefHeight="428.0" prefWidth="857.0" stylesheets="@../css/statics_design.css">
+                     <columns>
+                        <TableColumn fx:id="od_col_ID" prefWidth="71.20001602172852" text="ID" />
+                        <TableColumn fx:id="od_col_dateCreated" prefWidth="139.99996948242188" text="Date Created" />
+                        <TableColumn fx:id="od_col_member" prefWidth="134.0000762939453" text="Member_ID" />
+                        <TableColumn fx:id="od_col_employee" prefWidth="144.4000244140625" text="Employee_ID" />
+                        <TableColumn fx:id="od_col_totalPrice" prefWidth="97.199951171875" text="Total Price" />
+                        <TableColumn fx:id="od_col_discount" prefWidth="82.4000244140625" text="Discount" />
+                        <TableColumn fx:id="od_col_finalPrice" prefWidth="91.99993896484375" text="Final Price" />
+                        <TableColumn fx:id="od_col_viewDetails" prefWidth="88.400146484375" text="Action" />
+                     </columns>
+                  </TableView>
+                  <TextField fx:id="od_search" layoutX="31.0" layoutY="14.0" prefHeight="30.0" prefWidth="262.0" promptText="Search" styleClass="search" stylesheets="@../css/statics_design.css" />
+                  <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="37.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/search.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="od_deleteBtn" layoutX="775.0" layoutY="508.0" mnemonicParsing="false" onAction="#handleDeleteInvoice" prefHeight="36.0" prefWidth="98.0" styleClass="uicd-button" stylesheets="@../css/statics_design.css" text="Delete" />
+                  <Button fx:id="od_newBtn" layoutX="652.0" layoutY="508.0" mnemonicParsing="false" onAction="#mr_handleNewBtn" prefHeight="36.0" prefWidth="98.0" styleClass="uicd-button" stylesheets="@../css/statics_design.css" text="New" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
